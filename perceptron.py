@@ -24,10 +24,10 @@ class Perceptron:
         saida = sigmoid(total_soma)
         return 1 if saida >= 0.5 else 0  # Retorna 1 para apto, 0 para não apto
 
-    def treinar(self, X, y, ciclos=100):
+    def treinar(self, amostra, saida_esperada, ciclos=100):
         for ciclo in range(ciclos):
             total_erros = 0
-            for entradas, target in zip(X, y):
+            for entradas, target in zip(amostra, saida_esperada):
 
                 # Passo 1: Calcular a saída do perceptron
                 total_soma = self.soma_pesos(entradas)
@@ -45,4 +45,4 @@ class Perceptron:
                 self.vies += self.escala_aprendizagem * erro * saida * (1 - saida)
 
             # Exibir o erro médio por época
-            print(f"Ciclo {ciclo + 1}/{ciclos}, erro: {total_erros / len(X)}")
+            print(f"Ciclo {ciclo + 1}/{ciclos}, erro: {total_erros / len(amostra)}")
