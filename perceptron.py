@@ -11,13 +11,13 @@ def sigmoid(x):
 class Perceptron:
 
     def __init__(self, input_size, escala_aprendizagem=0.1):
-        # Inicializar pesos e bias aleatoriamente
+        # Inicializar pesos e vies aleatoriamente
         self.pesos = np.random.randn(input_size)
-        self.bias = np.random.randn()
+        self.vies = np.random.randn()
         self.escala_aprendizagem = escala_aprendizagem
 
     def soma_pesos(self, entradas):
-        return np.dot(entradas, self.pesos) + self.bias
+        return np.dot(entradas, self.pesos) + self.vies
 
     def consolidacao(self, entradas):
         total_soma = self.soma_pesos(entradas)
@@ -37,12 +37,12 @@ class Perceptron:
                 erro = target - saida
                 total_erros += erro ** 2  # Acumular o erro quadrado
 
-                # Passo 3: Ajustar pesos e bias
+                # Passo 3: Ajustar pesos e vies
                 # Atualização dos pesos usando o gradiente descendente
                 self.pesos += self.escala_aprendizagem * erro * saida * (1 - saida) * np.array(entradas)
 
-                # Atualização do bias
-                self.bias += self.escala_aprendizagem * erro * saida * (1 - saida)
+                # Atualização do vies
+                self.vies += self.escala_aprendizagem * erro * saida * (1 - saida)
 
             # Exibir o erro médio por época
             print(f"Ciclo {ciclo + 1}/{ciclos}, erro: {total_erros / len(X)}")
