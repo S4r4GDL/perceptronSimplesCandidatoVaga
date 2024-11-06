@@ -10,18 +10,21 @@ def main():
     # Dados de treinamento: entradas e saídas desejadas
     amostra = np.array([
 
-        [0, 0, 0, 0],   #0
-        [0, 0, 1, 1],   #0
-        [0, 1, 1, 0],   #0
-        [1, 1, 0, 1],   #1
-        [1, 0, 1, 1],   #1
-        [1, 1, 0, 0],   #0
-        [0, 1, 0, 1],   #1
-        [0, 0, 1, 0],  # 0
-        [0, 1, 0, 0],  # 0
+        [0, 0, 0, 0], #0
+        [0, 0, 0, 1], #0
+        [0, 0, 1, 1], #0
+        [0, 1, 0, 1], #1
+        [0, 1, 1, 0], #0
+        [1, 0, 0, 0], #0
+        [1, 0, 0, 1], #1
+        [1, 0, 1, 0], #0
+        [1, 0, 1, 1], #1
+        [1, 1, 0, 0], #0
+        [1, 1, 1, 0], #1
 
     ])
-    y = np.array([0, 0, 0, 1, 1, 0, 1, 0, 0])  # Saídas desejadas: 1 para apto, 0 para não apto
+
+    y = np.array([0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1])  # Saídas desejadas: 1 para apto, 0 para não apto
 
     # Instanciar o perceptron com 4 entradas e uma taxa de aprendizado de 0.1
     perceptron_model = Perceptron(input_size=4, escala_aprendizagem=0.1)
@@ -34,11 +37,11 @@ def main():
     # Testar o modelo com novos exemplos
     novos_candidatos = np.array([
 
-        [0, 1, 0, 1],  # 1
-        [1, 1, 1, 1],  # 1
-        [1, 0, 0, 0],  # 0
-        [1, 0, 1, 0],  # 0
-        [1, 0, 1, 1],  # 1  # Exemplo de candidato que está apto para ser entrevistado com certificação e disponibilidade
+        [0, 0, 1, 0],   # 0
+        [0, 1, 0, 0],   # 0
+        [1, 1, 0, 1],   # 1
+        [1, 0, 1, 0],   # 0
+        [1, 1, 1, 1]    # 1
     ])
 
     print("Resultados para novos candidatos a vaga:")
